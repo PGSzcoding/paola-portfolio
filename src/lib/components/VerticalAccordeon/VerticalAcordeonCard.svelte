@@ -35,7 +35,7 @@
         <div class="project-card__desc">
           <div class="row justify-content-sm-center justify-content-between mt-3">
             {#each card.section_list as item,i}
-              <div class="col-sm-3 col-2 my-2 skill-p px-3"  onmouseenter={()=>changeP(item,i)} on:mouseleave={()=>mouseleave(i)}>
+              <div class="col-sm-3 col-2 my-2 skill-p px-3"  onmouseenter={()=>changeP(item,i)} onmouseleave={()=>mouseleave(i)}>
               <img class="skill-img" src="{urlFor(item.image).url()}" alt="{item.name}">
               {#if progresses[i]!=0}
                 <div class="progress" transition:fade>
