@@ -15,7 +15,7 @@
 
           <div class="card-footer">
             {#each item.tags as tag}
-            <img class="mb-2 mx-1" src="/images/skills/{tag}.png" alt="{tag}" on:error={(e) => e.currentTarget.src = `/images/skills/${tag}.jpg`} />
+            <img class="mb-2 mx-1" src="/images/skills/{tag}.png" alt="{tag}" onerror={(e) => e.currentTarget.src = `/images/skills/${tag}.jpg`} />
             {/each}
         
           </div>

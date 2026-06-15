@@ -34,7 +34,7 @@
                 </p>
                 <div data-aos="fade-right" data-aos-duration="1700" class="project-tags mt-3 justify-content-lg-start justify-content-center">
             {#each project.tags as tag}
-            <img class="mb-2 mx-1" src="/images/skills/{tag}.png" alt="{tag}" on:error={(e) => e.currentTarget.src = `/images/skills/${tag}.jpg`} />
+            <img class="mb-2 mx-1" src="/images/skills/{tag}.png" alt="{tag}" onerror={(e) => e.currentTarget.src = `/images/skills/${tag}.jpg`} />
             {/each}
             
           </div>
