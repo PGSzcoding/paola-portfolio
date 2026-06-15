@@ -27,13 +27,13 @@
 </script>
 
 <div class="carousel-controls">
-    <button class="nav-btn" on:click={prev}>‹</button>
+    <button class="nav-btn" onclick={prev}>‹</button>
     <div class="pagination-indicators">
       {#each projects as _, index}
-        <div class="dot {index === activeIndex ? 'active' : ''}" on:click={() => updateIndex(index)}></div>
+        <div class="dot {index === activeIndex ? 'active' : ''}" onclick={() => updateIndex(index)}></div>
       {/each}
     </div>
-    <button class="nav-btn" on:click={next}>›</button>
+    <button class="nav-btn" onclick={next}>›</button>
   </div>
 
 

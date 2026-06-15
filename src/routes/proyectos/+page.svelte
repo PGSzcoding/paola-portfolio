@@ -36,7 +36,7 @@ const filteredItems = $derived( activeFilter === '*'
 
         <div class="filters" data-aos="fade-right">
           {#each tags as filter (filter.value)}
-            <button class="font1" class:is-checked={activeFilter === filter.value} on:click={() => (activeFilter = filter.value)}>
+            <button class="font1" class:is-checked={activeFilter === filter.value} onclick={() => (activeFilter = filter.value)}>
               {filter.label}
             </button>
           {/each}

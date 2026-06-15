@@ -6,7 +6,7 @@
 </script>
 <div class="dots">
     {#each cards as _, i}
-      <span class="dot" class:active={i === current}  on:click={() => onActivate(i)}></span>
+      <span class="dot" class:active={i === current}  onclick={() => onActivate(i)}></span>
     {/each}
 </div>
 

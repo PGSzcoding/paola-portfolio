@@ -28,7 +28,7 @@ function updateIndex(i) {activeIndex = i;}
 <div class="carousel-container pt-sm-5 pt-2 pb-5">
     <div class="carousel-stage">
       {#each projects as item, index}
-        <div class="carousel-card {getPosition(index)}" on:click={() => updateIndex(index)}>
+        <div class="carousel-card {getPosition(index)}" onclick={() => updateIndex(index)}>
           <GalleryCard {item} />
         </div>
       {/each}

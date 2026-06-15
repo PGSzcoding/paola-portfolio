@@ -32,7 +32,7 @@
              
         </div>
         <div class="col-lg-5 col-md-9 col-11 mt-5" >
-            <form action="" class="contact-form px-4" on:submit={sendForm} data-aos="zoom-in" data-aos-duration="1500">
+            <form action="" class="contact-form px-4" onsubmit={sendForm} data-aos="zoom-in" data-aos-duration="1500">
                 <input required name="email" type="email" class="form-control my-2 font-3" id="exampleFormControlInput1" placeholder="Email">
                 <textarea required name="message" class="form-control mt-3" id="exampleFormControlTextarea1" placeholder="{$lang=='es'?'Mensaje':'Message'}..." rows="8"></textarea>
                 <button disabled={loading} class="btn-submit btn btn-blue mt-3 font1">{$lang=='es'?'Enviar':'Send'} {#if loading}&nbsp;<div class="spinner-border spinner-border-sm" role="status"></div>{/if}</button>

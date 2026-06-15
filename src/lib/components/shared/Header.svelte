@@ -32,7 +32,7 @@ $: path = $page.url.pathname;
     <div class="header px-sm-3 px-0 py-1">
         <div class="row justify-content-between align-items-center px-3 mx-0">
             <div class="col-2 px-0 lang-2">
-                <button on:click={changeLang} class="lang-btn ">{$lang=='es'?'ENG':'ESP'}</button>
+                <button onclick={changeLang} class="lang-btn ">{$lang=='es'?'ENG':'ESP'}</button>
             </div>
             <div class="col">
                 <ul class="menu font1">
@@ -46,7 +46,7 @@ $: path = $page.url.pathname;
             </div>
             <div class="col">
                 <ul class="socials">
-                    <li class="social-item"><button on:click={changeLang} class="lang-btn ">{$lang=='es'?'ENG':'ESP'}</button></li>
+                    <li class="social-item"><button onclick={changeLang} class="lang-btn ">{$lang=='es'?'ENG':'ESP'}</button></li>
                     <li class="social-item"><a href="https://wa.me/524491984582" target="_blank" class="social-link"><i class="bi bi-whatsapp"></i></a></li>
                     <li class="social-item"><a href="mailto:paolagtzsal@gmail.com" target="_blank" class="social-link"><i class="bi bi-envelope"></i></a></li>
                     <li class="social-item"><a href="/contacto" class="btn btn-sm btn-pink">{$lang=='es'?'Contáctame':'Get in touch'}</a></li>
@@ -55,7 +55,7 @@ $: path = $page.url.pathname;
         </div>
     </div>
    
-     <button class='menu-btn' class:is_open={is_open} on:click="{toggleMenu}" aria-label="menu">
+     <button class='menu-btn' class:is_open={is_open} onclick="{toggleMenu}" aria-label="menu">
         <svg width="40" height="40" viewBox="0 0 100 100">
           <path class="line line1" d="M 20,29.000046 H 80.000231 C 80.000231,29.000046 94.498839,28.817352 94.532987,66.711331 94.543142,77.980673 90.966081,81.670246 85.259173,81.668997 79.552261,81.667751 75.000211,74.999942 75.000211,74.999942 L 25.000021,25.000058" />
           <path class="line line2" d="M 20,50 H 80" />
@@ -70,10 +70,10 @@ $: path = $page.url.pathname;
             <ul class="menu-list-mobile px-0">
                 {#each $lang=='es'?menu_options.es:menu_options.en as option,i}
                     {#if option.link!='/#about'}
-                <li class:active={path==option.link} ><a href="javascript:void(0)" on:click={()=>mobileLink(option.link)} class="menu-link">{option.name}</a></li>
+                <li class:active={path==option.link} ><a href="javascript:void(0)" onclick={()=>mobileLink(option.link)} class="menu-link">{option.name}</a></li>
                     {/if}
                 {/each}
-                 <li class="mt-2 mb-4"><a href="/contacto" on:click={()=>is_open = false} class="btn btn-pink">{$lang=='es'?'Contáctame':'Get in touch'}</a></li>
+                 <li class="mt-2 mb-4"><a href="/contacto" onclick={()=>is_open = false} class="btn btn-pink">{$lang=='es'?'Contáctame':'Get in touch'}</a></li>
             </ul>
              <ul class="menu-list-socials py-1 text-center bg-beige-2">
                 <li class="mb-1"><span><a href="https://wa.me/524491984582" target="_blank" class="social-link"><i class="bi bi-whatsapp"></i> (+52) 449 198 45 82</a></span></li>
