@@ -12,6 +12,9 @@ export {default as AboutMeIndex} from "./AboutMeIndex.svelte"
 export {default as ProjectsIndex} from "./ProjectsIndex.svelte"
 export {default as SkillsIndex} from "./SkillsIndex.svelte"
 export {default as ContactMeIndex} from "./ContactMeIndex.svelte"
+export {default as PhotoSwipe} from "./PhotoSwipe.svelte"
+
+
 
 export {default as GalleryGsap} from "./gsap/Gallery.svelte"
 export {default as TypeWritting} from "./gsap/TypeWritting.svelte"

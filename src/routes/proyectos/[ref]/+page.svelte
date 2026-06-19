@@ -1,5 +1,5 @@
 <script>
-    import { CursorLink } from "$components";
+    import { CursorLink, PhotoSwipe } from "$components";
     import { urlFor } from "$lib/sanity";
     import { lang } from "$lib/stores/general.js";
     import { onMount } from "svelte";
@@ -11,16 +11,21 @@
 <section>
     {#if project}
     <div class="row mx-0 mt-sm-5 mt-4 justify-content-center">
+    <!--
         <div class="col-4 d-lg-block d-none">
             <div class="cover-container" data-aos="zoom-in">
                 <img class="cover" src="{urlFor(project.cover).url()}" alt="">
             </div>
-        </div>
-        <div class="col-lg-6 col-11">
-            <div class="proyect-desc">
+        </div>-->
+        <div class="col-lg-7 col-11 text-center">
+            <div class="proyect-desc mt-4">
                 <h1 class="" data-aos="fade-right">{project.title}</h1>
+                {#if project.subtitle}
+                    <h2 class="subtitle-proy" data-aos="fade-right">{project.subtitle}</h2>
+                {/if}
+
                 {#if project.link_git || project.link_site}
-                <div class="d-flex mt-2 links-d">
+                <div class="d-flex mt-2 links-d justify-content-sm-center">
                     {#if project.link_git}
                         <a href="{project.link_git}" title="go to git" target="_blank" class="btn btn-pink btn-link btn-sm"><i class="bi bi-github"></i></a>
                     {/if}
@@ -29,17 +34,32 @@
                     {/if}
                 </div>
                 {/if}
+                
+                
+            </div>
+        </div>
+       <div class="{!project.features?'col-lg-7 text-center':'col-lg-5 '} col-11 ">
                 <p class="mt-4" data-aos="fade-right" data-aos-duration="1700">
-                    {project.description[$lang]}
+                    {@html project.description[$lang]}
                 </p>
-                <div data-aos="fade-right" data-aos-duration="1700" class="project-tags mt-3 justify-content-lg-start justify-content-center">
+                <div data-aos="fade-right" data-aos-duration="1700" class="project-tags mt-3  justify-content-center my-sm-4 mb-2">
             {#each project.tags as tag}
             <img class="mb-2 mx-1" src="/images/skills/{tag}.png" alt="{tag}" onerror={(e) => e.currentTarget.src = `/images/skills/${tag}.jpg`} />
             {/each}
             
           </div>
-            </div>
+       </div>
+       {#if project.features}
+        <div class="col-lg-3 col-11 text-left">
+            <ul class="mt-4 ps-4">
+            <h3 class="mb-2">{$lang=='en'?'Key features':'Aspectos destacados'}</h3>
+                {#each project.features as key}
+                    <li><i class="bi bi-check2"></i> {key}</li>
+                {/each}
+            </ul>
         </div>
+       {/if}
+       
     </div>
      <div data-aos="fade-in" class=" mt-sm-4 mt-5 text-center bg-yellow pb-5 pt-3">
         {#if $lang == 'es'}
@@ -48,14 +68,16 @@
             <h1 data-aos="zoom-in" class="title-g"><span class="font1">See</span> <span class="cursive1 cursive mx-2">the</span> <span class="highlight-blue">Project</span></h1>
         {/if}
 
-        <div class="mb-4 mt-5 mt-lg-3 project-splide" data-aos="zoom-in">
+        <div class="mb-4 mt-sm-5 mt-3 mt-lg-3 project-splide" data-aos="zoom-in">
+            <PhotoSwipe images={project.gallery} galleryID="project-{project.id}" />
+            <!--
             <Splide aria-label="project gallery" options={{type   : 'loop',perPage: 3,focus  : 'center',arrows:false,breakpoints: {623: { perPage: 1},903: { perPage: 1}}}}>
                 {#each project.gallery  as img,i}
                     <SplideSlide>
                         <img class="img-gallery" src="{urlFor(img).url()}" alt="{project.title}{i}"/>
                     </SplideSlide>
                 {/each}
-            </Splide>
+            </Splide>-->
         </div>
         
      </div>
@@ -82,9 +104,9 @@
     .project-tags{display: flex; flex-wrap: wrap;}
     .project-tags img{width: 50px;}
     .img-gallery{max-width: 95%; object-fit: cover; height: 100%; border-radius: 15px;}
-
+    .subtitle-proy{color: rgb(0 0 0 / 64%);}
     @media only screen and (max-width: 900px) {
-        .proyect-desc h1{text-align: center;}
+        .proyect-desc h1{text-align: center; font-size: 3rem;}
         .links-d{justify-content: center;}
         .proyect-desc p{text-align: justify;line-height: 1.34;}
          .title-g{font-size: 2.6rem;}

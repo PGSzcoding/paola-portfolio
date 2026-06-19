@@ -6,7 +6,7 @@
 	const { data } = $props()
  
     onMount(()=>{
-       
+    console.log(data)
     })
 
 

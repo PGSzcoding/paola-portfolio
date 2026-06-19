@@ -63,6 +63,8 @@ h1, h2, h3, h4, h5, h6, p { margin: 0; }
 .btn-yellow:hover{background-color: #f0e8a1;}
 .btn-pink{background-color: var(--pink); color: #863d65;}
 .btn-pink:hover{background-color: #f5abd4;color: #863d65;}
+.btn-outlined-pink{border-color: #863d65; color: #863d65;;}
+.btn-outlined-pink:hover{border-color: #f5abd4; color: #f5abd4;;}
 .btn-blue{background-color: var(--blue);}
 .btn-blue:hover{background-color: #8ca8e0;}
 .btn-mint{background-color: var(--mint); }

@@ -1,12 +1,15 @@
 <script>
     import { GalleryGsap } from "$components";
+  import { onMount } from "svelte";
     const { projects } = $props()
+     let  show_projects= projects.filter(val=>val.show_home)
+    
 </script>
 
 <div class="projects-index bg-yellow  pt-sm-5 pb-5 pt-2">
    <h1 data-aos="zoom-in" class="projects-title font1">VIEW <span class="cursive1">the</span> WORK</h1>
    <div class="galleryGsap-container" data-aos="zoom-in" data-aos-duration="1600">
-    <GalleryGsap {projects} />
+    <GalleryGsap projects={show_projects} />
    </div>
 </div>
 

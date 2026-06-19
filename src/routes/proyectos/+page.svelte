@@ -17,7 +17,7 @@
     function updateTags(){
         if(items){
             if(items.length>0){
-                tags = [{ label: 'All', value: '*' },...[...new Set(items.flatMap(project => project.tags))]
+                tags = [{ label: $lang=='en'?'All':'Todos', value: '*' },...[...new Set(items.flatMap(project => project.tags))]
                 .map(tag => ({ label: tag.charAt(0).toUpperCase() + tag.slice(1), value: tag }))];
             }
         }
@@ -47,14 +47,16 @@ const filteredItems = $derived( activeFilter === '*'
     <li class="element-item" animate:flip={{ duration: 400 }} in:scale={{ duration: 300, start: 0.8 }} out:fade={{ duration: 200 }}>
       <a href="/proyectos/{item._id}">
         <img class="cover-img" src={urlFor(item.cover).url()} alt="{item.title}" />
+        <hr class="line-separator my-0" >
         <div class="px-3 pb-3">
-        <h3 class="mt-3 mb-2">{item.title}</h3>
-        <p>
+        <h3 class="mt-3 mb-1 card-title-proy">{item.title}</h3>
+         <p class="text-center">{item.subtitle || ''}</p>
+       <!-- <p>
           {item.description[$lang]?.substring(0,170)}...
-        </p>
+        </p>-->
         <div class="card-footer mt-3">
             {#each item.tags as tag}
-            <img class="mb-2 mx-1" src="/images/skills/{tag}.png" alt="{tag}" onerror={(e) => e.currentTarget.src = `/images/skills/${tag}.jpg`} />
+            <img class="mb-2 mx-1 tag-image" src="/images/skills/{tag}.png" alt="{tag}" onerror={(e) => e.currentTarget.src = `/images/skills/${tag}.jpg`} />
             {/each}
           </div>
           </div>
@@ -66,6 +68,7 @@ const filteredItems = $derived( activeFilter === '*'
 
 </section>
 <style>
+.tag-image{filter: grayscale(100%); -webkit-filter: grayscale(100%); transition: all 1s ease;}
 .project-section{min-height: 80vh;}
   .grid {
     max-width: 1200px;
@@ -77,34 +80,36 @@ const filteredItems = $derived( activeFilter === '*'
   }
 
   .grid > li {
-    width: calc(100% / 3 - 30px);
+    width: calc(100% / 4 - 30px);
     margin: 0 15px 30px;
     overflow: hidden;
     border-radius: 15px;
-    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.8);
     transition: all 500ms ease-in;
-
+box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+background-color:  #f9f5e9b6;
   }
-.grid > li:hover{box-shadow: 0 20px 60px var(--yellow)}
+.grid > li:hover{    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.8);
+}
+.grid > li:hover .tag-image{filter:unset; -webkit-filter: unset}
   .element-item p{font-size: 16px; font-weight: 200; text-align: justify; line-height: 1.4;}
   .filters { color:black;
-    margin-top: 40px;
+    margin-top: 20px;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
   }
-
+.card-title-proy{font-size: 1.4rem;}
 .card-footer{display: flex; justify-content: center; flex-wrap: wrap;} 
 .card-footer img{width: 30px; height: 30px;}
 
   .grid li .cover-img {
-    width: 100%;;height: 230px; object-fit: cover;
+    width: 100%;;height: 160px; object-fit: cover;
   }
 
-  .filters button {color:black;
+  .filters button {color:#863d65;
     padding: 10px 25px;
     margin: 0 5px;
-    background-color:#e5e2d8 ;
+    background-color:#f081bf33 ;
     border: none;
     border-radius: 10px;
     transition: 150ms;

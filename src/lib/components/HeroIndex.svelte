@@ -4,7 +4,7 @@
     const { hero } = $props()
 </script>
 
-<div class="hero-index row mx-0  my-sm-0 my-5">
+<div class="hero-index row mx-0  my-sm-0 mb-5 mt-3">
     <div class="col-md-7 col-lg-4 col-11">
         <img data-aos="fade-up-right" class="hero-image" src="/images/girlComputer.png" alt="hero-ima">
     </div>
